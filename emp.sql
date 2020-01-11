@@ -1,1 +1,3 @@
-select * from emp
+select * from emfbp
+/
+select * from dept
