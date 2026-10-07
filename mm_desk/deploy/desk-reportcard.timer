@@ -1,0 +1,9 @@
+[Unit]
+Description=Score yesterday's fills; widen losing buckets
+
+[Timer]
+OnCalendar=*-*-* 00:07:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

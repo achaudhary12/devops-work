@@ -1,0 +1,10 @@
+# Copy to var/guard.toml and chmod 600. Read ONCE by the guard at start.
+# Nothing on the bus, no model, no prompt can change these. Edit by hand, restart the guard.
+max_inventory_btc     = 0.0016   # ~$100 at $60k
+max_loss_per_day_usd  = 10.0     # 1% of the paper capital in desk.toml [gates]... set your own
+max_orders_per_sec    = 5
+max_order_size_btc    = 0.001
+max_price_dev_frac    = 0.01     # refuse orders >1% from mark (fat finger)
+jev_heartbeat_ms      = 500      # no heartbeat this long -> cancel everything
+feed_silence_ms       = 1000     # no market message this long -> cancel everything
+feed_lag_ms           = 250      # exchange->us lag above this -> cancel everything

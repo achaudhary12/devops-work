@@ -1,0 +1,9 @@
+[Unit]
+Description=Every Sunday, Opus plays the predator
+
+[Timer]
+OnCalendar=Sun *-*-* 02:17:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

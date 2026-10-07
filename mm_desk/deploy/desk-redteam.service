@@ -1,0 +1,9 @@
+[Unit]
+Description=Jev desk: Sunday red team (appends paying attacks to deaths.md)
+
+[Service]
+Type=oneshot
+User=desk
+WorkingDirectory=/opt/desk
+Environment=DESK_HOME=/opt/desk/var
+ExecStart=/bin/sh -c '/opt/desk/.venv/bin/python -m desk.red_team --config desk.toml --day $(date -u -d yesterday +%%F)'

@@ -1,0 +1,5 @@
+var/
+.env
+desk.toml
+__pycache__/
+.pytest_cache/
