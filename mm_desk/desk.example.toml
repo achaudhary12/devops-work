@@ -1,0 +1,25 @@
+# Copy to desk.toml and edit. Every key here overrides desk/config.py defaults.
+# Leash limits are NOT here — they live in var/guard.toml, read only by the guard.
+
+[market]
+symbol = "BTC-PERP"
+tick = 0.1
+lot = 0.001
+maker_fee = 0.0        # your REAL maker tier. At 2bp the fee+tick floor is ~$24 at $60k (deaths.md D3)
+taker_fee = 0.0005
+
+[pricing]
+risk = 0.5
+vol_spread_k = 0.2
+base_size = 0.001
+max_inventory = 0.0016  # ~$100 at $60k: first live rung
+
+[pull]
+liq_notional_usd = 500000   # [$X] in the brief. Unset = pull on every liquidation.
+
+[latency]
+feed_ms = 30     # replace with tape.feed_delay_ms(...)["p95"]
+order_ms = 40    # replace with guard-measured order RTT / 2
+
+[gates]
+capital_usd = 10000

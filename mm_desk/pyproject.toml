@@ -1,0 +1,12 @@
+[project]
+name = "jev-desk"
+version = "0.1.0"
+description = "BTC-PERP market-making desk: recorder, jev, guard, reporter"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0", "polars>=1.0", "duckdb>=1.0", "orjson>=3.10", "uvloop>=0.19"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,19 @@
+[Unit]
+Description=Jev desk: guard
+After=network-online.target desk-recorder.service
+Wants=network-online.target desk-recorder.service
+
+[Service]
+Type=simple
+User=desk
+WorkingDirectory=/opt/desk
+Environment=DESK_HOME=/opt/desk/var
+# shadow | paper | live  (jev also accepts shadow; the guard is not needed in shadow)
+Environment=DESK_MODE=shadow
+ExecStart=/opt/desk/.venv/bin/python -m desk.guard --config desk.toml --mode ${DESK_MODE}
+Restart=always
+RestartSec=2
+# a crashed process is restarted; the guard has already cancelled everything (deaths.md D6)
+
+[Install]
+WantedBy=multi-user.target

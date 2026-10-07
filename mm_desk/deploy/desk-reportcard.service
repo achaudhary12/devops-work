@@ -1,0 +1,9 @@
+[Unit]
+Description=Jev desk: nightly report card -> widen.json for tomorrow
+
+[Service]
+Type=oneshot
+User=desk
+WorkingDirectory=/opt/desk
+Environment=DESK_HOME=/opt/desk/var
+ExecStart=/bin/sh -c '/opt/desk/.venv/bin/python -m desk.report_card --config desk.toml --day $(date -u -d yesterday +%%F) --write'
